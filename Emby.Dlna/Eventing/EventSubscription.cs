@@ -3,7 +3,7 @@
 
 using System;
 
-namespace Emby.Dlna.Eventing
+namespace Jellyfin.Dlna.Eventing
 {
     public class EventSubscription
     {

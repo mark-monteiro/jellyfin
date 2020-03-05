@@ -10,8 +10,8 @@ using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Emby.Dlna.Profiles;
-using Emby.Dlna.Server;
+using Jellyfin.Dlna.Profiles;
+using Jellyfin.Dlna.Server;
 using MediaBrowser.Common.Configuration;
 using MediaBrowser.Common.Extensions;
 using MediaBrowser.Controller;
@@ -25,7 +25,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Primitives;
 
-namespace Emby.Dlna
+namespace Jellyfin.Dlna
 {
     public class DlnaManager : IDlnaManager
     {

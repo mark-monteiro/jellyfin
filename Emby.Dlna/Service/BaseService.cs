@@ -1,11 +1,11 @@
 #pragma warning disable CS1591
 #pragma warning disable SA1600
 
-using Emby.Dlna.Eventing;
+using Jellyfin.Dlna.Eventing;
 using MediaBrowser.Common.Net;
 using Microsoft.Extensions.Logging;
 
-namespace Emby.Dlna.Service
+namespace Jellyfin.Dlna.Service
 {
     public class BaseService : IEventManager
     {

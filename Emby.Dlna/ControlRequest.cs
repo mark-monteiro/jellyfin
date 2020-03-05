@@ -4,7 +4,7 @@
 using System.IO;
 using Microsoft.AspNetCore.Http;
 
-namespace Emby.Dlna
+namespace Jellyfin.Dlna
 {
     public class ControlRequest
     {

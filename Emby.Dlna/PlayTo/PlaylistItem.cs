@@ -3,7 +3,7 @@
 
 using MediaBrowser.Model.Dlna;
 
-namespace Emby.Dlna.PlayTo
+namespace Jellyfin.Dlna.PlayTo
 {
     public class PlaylistItem
     {

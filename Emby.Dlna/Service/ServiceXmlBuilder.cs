@@ -3,10 +3,10 @@
 
 using System.Collections.Generic;
 using System.Text;
-using Emby.Dlna.Common;
-using Emby.Dlna.Server;
+using Jellyfin.Dlna.Common;
+using Jellyfin.Dlna.Server;
 
-namespace Emby.Dlna.Service
+namespace Jellyfin.Dlna.Service
 {
     public class ServiceXmlBuilder
     {

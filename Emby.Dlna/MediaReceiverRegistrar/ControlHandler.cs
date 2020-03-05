@@ -4,12 +4,12 @@
 using System;
 using System.Collections.Generic;
 using System.Xml;
-using Emby.Dlna.Service;
+using Jellyfin.Dlna.Service;
 using MediaBrowser.Common.Extensions;
 using MediaBrowser.Controller.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace Emby.Dlna.MediaReceiverRegistrar
+namespace Jellyfin.Dlna.MediaReceiverRegistrar
 {
     public class ControlHandler : BaseControlHandler
     {

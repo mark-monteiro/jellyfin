@@ -7,7 +7,7 @@ using MediaBrowser.Controller.Net;
 using MediaBrowser.Model.Dlna;
 using MediaBrowser.Model.Services;
 
-namespace Emby.Dlna.Api
+namespace Jellyfin.Dlna.Api
 {
     [Route("/Dlna/ProfileInfos", "GET", Summary = "Gets a list of profiles")]
     public class GetProfileInfos : IReturn<DeviceProfileInfo[]>

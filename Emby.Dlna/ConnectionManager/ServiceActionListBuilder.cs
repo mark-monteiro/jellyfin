@@ -2,9 +2,9 @@
 #pragma warning disable SA1600
 
 using System.Collections.Generic;
-using Emby.Dlna.Common;
+using Jellyfin.Dlna.Common;
 
-namespace Emby.Dlna.ConnectionManager
+namespace Jellyfin.Dlna.ConnectionManager
 {
     public class ServiceActionListBuilder
     {

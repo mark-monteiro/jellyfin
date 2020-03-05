@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 
-namespace Emby.Dlna
+namespace Jellyfin.Dlna
 {
     public class EventSubscriptionResponse
     {

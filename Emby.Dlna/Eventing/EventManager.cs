@@ -13,7 +13,7 @@ using MediaBrowser.Common.Extensions;
 using MediaBrowser.Common.Net;
 using Microsoft.Extensions.Logging;
 
-namespace Emby.Dlna.Eventing
+namespace Jellyfin.Dlna.Eventing
 {
     public class EventManager : IEventManager
     {

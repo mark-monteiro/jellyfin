@@ -3,7 +3,7 @@
 
 using System.Globalization;
 
-namespace Emby.Dlna.Common
+namespace Jellyfin.Dlna.Common
 {
     public class DeviceIcon
     {

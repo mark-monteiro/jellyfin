@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 
-namespace Emby.Dlna.Common
+namespace Jellyfin.Dlna.Common
 {
     public class ServiceAction
     {

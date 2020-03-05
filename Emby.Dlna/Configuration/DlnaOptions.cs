@@ -1,7 +1,7 @@
 #pragma warning disable CS1591
 #pragma warning disable SA1600
 
-namespace Emby.Dlna.Configuration
+namespace Jellyfin.Dlna.Configuration
 {
     public class DlnaOptions
     {

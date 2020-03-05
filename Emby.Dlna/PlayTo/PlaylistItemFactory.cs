@@ -7,7 +7,7 @@ using MediaBrowser.Controller.Entities;
 using MediaBrowser.Model.Dlna;
 using MediaBrowser.Model.Session;
 
-namespace Emby.Dlna.PlayTo
+namespace Jellyfin.Dlna.PlayTo
 {
     public class PlaylistItemFactory
     {

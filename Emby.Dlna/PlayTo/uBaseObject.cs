@@ -3,7 +3,7 @@
 
 using System;
 
-namespace Emby.Dlna.PlayTo
+namespace Jellyfin.Dlna.PlayTo
 {
     public class uBaseObject
     {

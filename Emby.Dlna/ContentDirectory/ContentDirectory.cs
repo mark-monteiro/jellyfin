@@ -3,7 +3,7 @@
 
 using System;
 using System.Threading.Tasks;
-using Emby.Dlna.Service;
+using Jellyfin.Dlna.Service;
 using MediaBrowser.Common.Net;
 using MediaBrowser.Controller.Configuration;
 using MediaBrowser.Controller.Dlna;
@@ -16,7 +16,7 @@ using MediaBrowser.Model.Dlna;
 using MediaBrowser.Model.Globalization;
 using Microsoft.Extensions.Logging;
 
-namespace Emby.Dlna.ContentDirectory
+namespace Jellyfin.Dlna.ContentDirectory
 {
     public class ContentDirectory : BaseService, IContentDirectory
     {

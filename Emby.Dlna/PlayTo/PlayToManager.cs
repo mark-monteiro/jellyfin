@@ -22,7 +22,7 @@ using MediaBrowser.Model.Globalization;
 using MediaBrowser.Model.Session;
 using Microsoft.Extensions.Logging;
 
-namespace Emby.Dlna.PlayTo
+namespace Jellyfin.Dlna.PlayTo
 {
     public class PlayToManager : IDisposable
     {

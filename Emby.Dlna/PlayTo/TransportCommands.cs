@@ -5,10 +5,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
-using Emby.Dlna.Common;
-using Emby.Dlna.Ssdp;
+using Jellyfin.Dlna.Common;
+using Jellyfin.Dlna.Ssdp;
 
-namespace Emby.Dlna.PlayTo
+namespace Jellyfin.Dlna.PlayTo
 {
     public class TransportCommands
     {

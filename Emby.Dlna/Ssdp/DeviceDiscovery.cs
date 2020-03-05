@@ -10,7 +10,7 @@ using MediaBrowser.Model.Events;
 using Rssdp;
 using Rssdp.Infrastructure;
 
-namespace Emby.Dlna.Ssdp
+namespace Jellyfin.Dlna.Ssdp
 {
     public sealed class DeviceDiscovery : IDeviceDiscovery, IDisposable
     {

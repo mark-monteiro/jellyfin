@@ -3,9 +3,9 @@
 
 using System;
 using System.Xml.Linq;
-using Emby.Dlna.Ssdp;
+using Jellyfin.Dlna.Ssdp;
 
-namespace Emby.Dlna.PlayTo
+namespace Jellyfin.Dlna.PlayTo
 {
     public class UpnpContainer : uBaseObject
     {

@@ -9,8 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Xml;
-using Emby.Dlna.Didl;
-using Emby.Dlna.Service;
+using Jellyfin.Dlna.Didl;
+using Jellyfin.Dlna.Service;
 using MediaBrowser.Common.Extensions;
 using MediaBrowser.Controller.Configuration;
 using MediaBrowser.Controller.Drawing;
@@ -30,7 +30,7 @@ using MediaBrowser.Model.Globalization;
 using MediaBrowser.Model.Querying;
 using Microsoft.Extensions.Logging;
 
-namespace Emby.Dlna.ContentDirectory
+namespace Jellyfin.Dlna.ContentDirectory
 {
     public class ControlHandler : BaseControlHandler
     {

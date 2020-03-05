@@ -2,13 +2,13 @@
 #pragma warning disable SA1600
 
 using System.Threading.Tasks;
-using Emby.Dlna.Service;
+using Jellyfin.Dlna.Service;
 using MediaBrowser.Common.Net;
 using MediaBrowser.Controller.Configuration;
 using MediaBrowser.Controller.Dlna;
 using Microsoft.Extensions.Logging;
 
-namespace Emby.Dlna.ConnectionManager
+namespace Jellyfin.Dlna.ConnectionManager
 {
     public class ConnectionManager : BaseService, IConnectionManager
     {

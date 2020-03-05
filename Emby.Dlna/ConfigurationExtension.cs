@@ -2,10 +2,10 @@
 #pragma warning disable SA1600
 
 using System.Collections.Generic;
-using Emby.Dlna.Configuration;
+using Jellyfin.Dlna.Configuration;
 using MediaBrowser.Common.Configuration;
 
-namespace Emby.Dlna
+namespace Jellyfin.Dlna
 {
     public static class ConfigurationExtension
     {

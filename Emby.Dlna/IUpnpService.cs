@@ -3,7 +3,7 @@
 
 using System.Threading.Tasks;
 
-namespace Emby.Dlna
+namespace Jellyfin.Dlna
 {
     public interface IUpnpService
     {

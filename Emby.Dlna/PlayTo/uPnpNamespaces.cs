@@ -3,7 +3,7 @@
 
 using System.Xml.Linq;
 
-namespace Emby.Dlna.PlayTo
+namespace Jellyfin.Dlna.PlayTo
 {
     public class uPnpNamespaces
     {

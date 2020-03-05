@@ -5,14 +5,14 @@ using System;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using Emby.Dlna.Main;
+using Jellyfin.Dlna.Main;
 using MediaBrowser.Common.Extensions;
 using MediaBrowser.Controller.Configuration;
 using MediaBrowser.Controller.Dlna;
 using MediaBrowser.Controller.Net;
 using MediaBrowser.Model.Services;
 
-namespace Emby.Dlna.Api
+namespace Jellyfin.Dlna.Api
 {
     [Route("/Dlna/{UuId}/description.xml", "GET", Summary = "Gets dlna server info")]
     [Route("/Dlna/{UuId}/description", "GET", Summary = "Gets dlna server info")]

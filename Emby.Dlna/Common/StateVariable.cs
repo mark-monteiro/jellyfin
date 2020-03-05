@@ -3,7 +3,7 @@
 
 using System;
 
-namespace Emby.Dlna.Common
+namespace Jellyfin.Dlna.Common
 {
     public class StateVariable
     {

@@ -5,7 +5,7 @@ using System;
 using System.IO;
 using System.Text;
 
-namespace Emby.Dlna.Didl
+namespace Jellyfin.Dlna.Didl
 {
     public class StringWriterWithEncoding : StringWriter
     {

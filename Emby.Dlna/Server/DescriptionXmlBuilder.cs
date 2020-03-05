@@ -6,10 +6,10 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using Emby.Dlna.Common;
+using Jellyfin.Dlna.Common;
 using MediaBrowser.Model.Dlna;
 
-namespace Emby.Dlna.Server
+namespace Jellyfin.Dlna.Server
 {
     public class DescriptionXmlBuilder
     {

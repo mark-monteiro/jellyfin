@@ -2,10 +2,10 @@
 #pragma warning disable SA1600
 
 using System.Collections.Generic;
-using Emby.Dlna.Common;
-using Emby.Dlna.Service;
+using Jellyfin.Dlna.Common;
+using Jellyfin.Dlna.Service;
 
-namespace Emby.Dlna.ContentDirectory
+namespace Jellyfin.Dlna.ContentDirectory
 {
     public class ContentDirectoryXmlBuilder
     {

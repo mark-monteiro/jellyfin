@@ -6,8 +6,8 @@ using System.Net.Sockets;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
-using Emby.Dlna.PlayTo;
-using Emby.Dlna.Ssdp;
+using Jellyfin.Dlna.PlayTo;
+using Jellyfin.Dlna.Ssdp;
 using MediaBrowser.Common.Configuration;
 using MediaBrowser.Common.Extensions;
 using MediaBrowser.Common.Net;
@@ -29,7 +29,7 @@ using Rssdp;
 using Rssdp.Infrastructure;
 using OperatingSystem =  MediaBrowser.Common.System.OperatingSystem;
 
-namespace Emby.Dlna.Main
+namespace Jellyfin.Dlna.Main
 {
     public class DlnaEntryPoint : IServerEntryPoint, IRunBeforeStartup
     {

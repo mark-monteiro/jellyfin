@@ -3,7 +3,7 @@
 
 using MediaBrowser.Model.Dlna;
 
-namespace Emby.Dlna.Profiles
+namespace Jellyfin.Dlna.Profiles
 {
     [System.Xml.Serialization.XmlRoot("Profile")]
     public class SonyPs3Profile : DefaultProfile

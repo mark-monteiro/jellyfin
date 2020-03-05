@@ -9,14 +9,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
-using Emby.Dlna.Common;
-using Emby.Dlna.Server;
-using Emby.Dlna.Ssdp;
+using Jellyfin.Dlna.Common;
+using Jellyfin.Dlna.Server;
+using Jellyfin.Dlna.Ssdp;
 using MediaBrowser.Common.Net;
 using MediaBrowser.Controller.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace Emby.Dlna.PlayTo
+namespace Jellyfin.Dlna.PlayTo
 {
     public class Device : IDisposable
     {

@@ -2,12 +2,12 @@
 #pragma warning disable SA1600
 
 using System.Threading.Tasks;
-using Emby.Dlna.Service;
+using Jellyfin.Dlna.Service;
 using MediaBrowser.Common.Net;
 using MediaBrowser.Controller.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace Emby.Dlna.MediaReceiverRegistrar
+namespace Jellyfin.Dlna.MediaReceiverRegistrar
 {
     public class MediaReceiverRegistrar : BaseService, IMediaReceiverRegistrar
     {

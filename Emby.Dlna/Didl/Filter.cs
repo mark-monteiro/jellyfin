@@ -4,7 +4,7 @@
 using System;
 using MediaBrowser.Model.Extensions;
 
-namespace Emby.Dlna.Didl
+namespace Jellyfin.Dlna.Didl
 {
     public class Filter
     {

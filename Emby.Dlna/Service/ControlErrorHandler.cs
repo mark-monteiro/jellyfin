@@ -5,9 +5,9 @@ using System;
 using System.IO;
 using System.Text;
 using System.Xml;
-using Emby.Dlna.Didl;
+using Jellyfin.Dlna.Didl;
 
-namespace Emby.Dlna.Service
+namespace Jellyfin.Dlna.Service
 {
     public static class ControlErrorHandler
     {

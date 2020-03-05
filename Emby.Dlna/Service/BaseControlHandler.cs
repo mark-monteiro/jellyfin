@@ -7,12 +7,12 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using Emby.Dlna.Didl;
+using Jellyfin.Dlna.Didl;
 using MediaBrowser.Controller.Configuration;
 using MediaBrowser.Controller.Extensions;
 using Microsoft.Extensions.Logging;
 
-namespace Emby.Dlna.Service
+namespace Jellyfin.Dlna.Service
 {
     public abstract class BaseControlHandler
     {

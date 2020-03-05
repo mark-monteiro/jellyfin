@@ -3,7 +3,7 @@
 
 using System.Xml.Linq;
 
-namespace Emby.Dlna.Ssdp
+namespace Jellyfin.Dlna.Ssdp
 {
     public static class Extensions
     {

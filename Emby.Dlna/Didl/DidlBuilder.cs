@@ -7,8 +7,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
-using Emby.Dlna.Configuration;
-using Emby.Dlna.ContentDirectory;
+using Jellyfin.Dlna.Configuration;
+using Jellyfin.Dlna.ContentDirectory;
 using MediaBrowser.Controller.Channels;
 using MediaBrowser.Controller.Drawing;
 using MediaBrowser.Controller.Entities;
@@ -25,7 +25,7 @@ using MediaBrowser.Model.Globalization;
 using MediaBrowser.Model.Net;
 using Microsoft.Extensions.Logging;
 
-namespace Emby.Dlna.Didl
+namespace Jellyfin.Dlna.Didl
 {
     public class DidlBuilder
     {
