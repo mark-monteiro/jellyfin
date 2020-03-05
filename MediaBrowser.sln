@@ -28,7 +28,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Emby.Server.Implementations
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RSSDP", "RSSDP\RSSDP.csproj", "{21002819-C39A-4D3E-BE83-2A276A77FB1F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Emby.Dlna", "Emby.Dlna\Emby.Dlna.csproj", "{805844AB-E92F-45E6-9D99-4F6D48D129A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jellyfin.Dlna", "Emby.Dlna\Jellyfin.Dlna.csproj", "{805844AB-E92F-45E6-9D99-4F6D48D129A5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Emby.Notifications", "Emby.Notifications\Emby.Notifications.csproj", "{2E030C33-6923-4530-9E54-FA29FA6AD1A9}"
 EndProject
