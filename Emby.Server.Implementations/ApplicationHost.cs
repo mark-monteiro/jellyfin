@@ -1321,7 +1321,7 @@ namespace Emby.Server.Implementations
                     Assembly plugAss;
                     try
                     {
-                        plugAss = Assembly.LoadFrom(file);
+                        plugAss = LoadPluginAssembly(file);
                     }
                     catch (FileLoadException ex)
                     {
@@ -1378,6 +1378,13 @@ namespace Emby.Server.Implementations
                 yield return i;
             }
         }
+
+        /// <summary>
+        /// Load the specified plugin assembly.
+        /// </summary>
+        /// <param name="assemblyPath">The file path of the assembly .dll to load.</param>
+        /// <returns>The loaded assembly.</returns>
+        protected abstract Assembly LoadPluginAssembly(string assemblyPath);
 
         protected abstract IEnumerable<Assembly> GetAssembliesWithPartsInternal();
 
@@ -1701,7 +1708,7 @@ namespace Emby.Server.Implementations
         /// Removes the plugin.
         /// </summary>
         /// <param name="plugin">The plugin.</param>
-        public void RemovePlugin(IPlugin plugin)
+        public virtual void RemovePlugin(IPlugin plugin)
         {
             var list = _plugins.ToList();
             list.Remove(plugin);
