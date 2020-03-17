@@ -68,4 +68,4 @@ jobs:
     - name: Package Project
       run: dotnet pack ${{matrix.project}} --configuration Release --output dist --version-suffix "build.$GITHUB_RUN_NUMBER"
     - name: Publish NuGet Package
-      run: dotnet nuget push dist/*.nupkg --api-key "${{ secrets.GITHUB_TOKEN }}" --source https://nuget.pkg.github.com/mark-monteiro/index.json
+      run: dotnet nuget push dist/*.nupkg --api-key ${{ secrets.PACKAGE_REPO_TOKEN }} --source https://nuget.pkg.github.com/mark-monteiro/index.json
