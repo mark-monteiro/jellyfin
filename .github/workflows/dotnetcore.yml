@@ -65,11 +65,9 @@ jobs:
       uses: actions/checkout@v2
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
-      with:
-        source-url: https://nuget.pkg.github.com/mark-monteiro/index.json
-      env:
-        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - name: Package Project
       run: dotnet pack ${{matrix.project}} --configuration Release --output dist --version-suffix build.${{github.run_number}}
     - name: Publish NuGet Package
-      run: dotnet nuget push dist/*.nupkg
+      run: |
+        cd dist
+        dotnet nuget push *.nupkg --api-key ${{secrets.GITHUB_TOKEN}} --source https://nuget.pkg.github.com/mark-monteiro/index.json
