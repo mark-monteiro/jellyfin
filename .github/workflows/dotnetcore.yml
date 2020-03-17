@@ -70,6 +70,6 @@ jobs:
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - name: Package Project
-      run: dotnet pack ${{matrix.project}} --configuration Release --output dist --version-suffix build.%GITHUB_RUN_NUMBER%
+      run: dotnet pack ${{matrix.project}} --configuration Release --output dist --version-suffix build.${{github.run_number}}
     - name: Publish NuGet Package
       run: dotnet nuget push dist/*.nupkg
