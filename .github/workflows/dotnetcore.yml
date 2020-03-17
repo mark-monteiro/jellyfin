@@ -1,0 +1,55 @@
+name: .NET Core
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+    - name: Build with dotnet
+      run: dotnet build --configuration Release
+    - name: Archive build results
+      uses: actions/upload-artifact@v1
+      with:
+        name: Build-Result
+        path: bin/Release/netcoreapp3.1
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+    - name: Run tests with dotnet
+      run: dotnet test --configuration Release --logger trx --results-directory TestResults
+    - name: Archive test results
+      uses: actions/upload-artifact@v1
+      with:
+        name: Test-Results
+        path: TestResults
+        
+  publish:  
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+    - name: Package application with dotnet
+      run: dotnet publish --configuration Release
+    - name: Archive published app 
+      uses: actions/upload-artifact@v1
+      with:
+        name: Published-App
+        path: bin/Release/netcoreapp3.1/publish
