@@ -53,3 +53,22 @@ jobs:
       with:
         name: Published-App
         path: dist
+
+  package-nuget:
+    name: Package NuGet library ${{ matrix.project }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        project: ['Emby.Naming', 'MediaBrowser.Common', 'MediaBrowser.Controller', 'MediaBrowser.Model']
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+    - name: Package Project
+      run: dotnet pack ${{matrix.project}} --configuration Release --output dist --version-suffix "build-${{ GITHUB_RUN_NUMBER }}"
+    - name: Archive Package
+      uses: actions/upload-artifact@v1
+      with:
+        name: Published-App
+        path: dist
