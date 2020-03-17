@@ -17,12 +17,12 @@ jobs:
       with:
         dotnet-version: 3.1.101
     - name: Build with dotnet
-      run: dotnet build --configuration Release
+      run: dotnet build --configuration Release --output dist
     - name: Archive build results
       uses: actions/upload-artifact@v1
       with:
         name: Build-Result
-        path: bin/Release/netcoreapp3.1
+        path: dist
 
   test:
     runs-on: ubuntu-latest
@@ -47,9 +47,9 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
     - name: Package application with dotnet
-      run: dotnet publish --configuration Release
+      run: dotnet publish --configuration Release --output dist
     - name: Archive published app 
       uses: actions/upload-artifact@v1
       with:
         name: Published-App
-        path: bin/Release/netcoreapp3.1/publish
+        path: dist
