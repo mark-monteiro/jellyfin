@@ -67,10 +67,6 @@ jobs:
       uses: actions/setup-dotnet@v1
     - name: Setup NuGet
       uses: nuget/setup-nuget@v1
-      with:
-        nuget-api-key: ${{ secrets.GITHUB_TOKEN }}
-        nuget-api-key-source: https://nuget.pkg.github.com/mark-monteiro/index.json
-        nuget-version: latest 
     - name: Package Project
       run: dotnet pack ${{matrix.project}} --configuration Release --output dist --version-suffix build.${{github.run_number}}
     - name: Publish NuGet Package
