@@ -1720,6 +1720,7 @@ namespace Emby.Server.Implementations
             _plugins = list.ToArray();
         }
 
+        /// <inheritdoc/>
         public virtual void LaunchUrl(string url)
         {
             if (!CanLaunchWebBrowser)

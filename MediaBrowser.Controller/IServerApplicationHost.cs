@@ -29,13 +29,11 @@ namespace MediaBrowser.Controller
         /// <summary>
         /// Gets the HTTP server port.
         /// </summary>
-        /// <value>The HTTP server port.</value>
         int HttpPort { get; }
 
         /// <summary>
         /// Gets the HTTPS port.
         /// </summary>
-        /// <value>The HTTPS port.</value>
         int HttpsPort { get; }
 
         /// <summary>
@@ -53,19 +51,16 @@ namespace MediaBrowser.Controller
         /// <summary>
         /// Gets the name of the friendly.
         /// </summary>
-        /// <value>The name of the friendly.</value>
         string FriendlyName { get; }
 
         /// <summary>
         /// Gets the local ip address.
         /// </summary>
-        /// <value>The local ip address.</value>
         Task<List<IPAddress>> GetLocalIpAddresses(CancellationToken cancellationToken);
 
         /// <summary>
         /// Gets the local API URL.
         /// </summary>
-        /// <value>The local API URL.</value>
         Task<string> GetLocalApiUrl(CancellationToken cancellationToken);
 
         /// <summary>

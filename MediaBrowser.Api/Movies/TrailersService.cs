@@ -23,16 +23,8 @@ namespace MediaBrowser.Api.Movies
     [Authenticated]
     public class TrailersService : BaseApiService
     {
-        /// <summary>
-        /// The _user manager
-        /// </summary>
         private readonly IUserManager _userManager;
-
-        /// <summary>
-        /// The _library manager
-        /// </summary>
         private readonly ILibraryManager _libraryManager;
-
         private readonly IDtoService _dtoService;
         private readonly ILocalizationManager _localizationManager;
         private readonly IJsonSerializer _json;

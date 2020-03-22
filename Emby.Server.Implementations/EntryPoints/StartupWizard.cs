@@ -11,9 +11,6 @@ namespace Emby.Server.Implementations.EntryPoints
     /// </summary>
     public sealed class StartupWizard : IServerEntryPoint
     {
-        /// <summary>
-        /// The app host.
-        /// </summary>
         private readonly IServerApplicationHost _appHost;
         private readonly IServerConfigurationManager _config;
 

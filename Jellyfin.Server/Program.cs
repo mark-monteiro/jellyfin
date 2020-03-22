@@ -102,14 +102,14 @@ namespace Jellyfin.Server
             var stopWatch = new Stopwatch();
             stopWatch.Start();
 
-            // Log all uncaught exceptions to std error
+            // Log all uncaught exceptions to std error until the real logger is initialized
             static void UnhandledExceptionToConsole(object sender, UnhandledExceptionEventArgs e) =>
                 Console.Error.WriteLine("Unhandled Exception\n" + e.ExceptionObject.ToString());
             AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionToConsole;
 
             ServerApplicationPaths appPaths = CreateApplicationPaths(options);
 
-            // $JELLYFIN_LOG_DIR needs to be set for the logger configuration manager
+            // Ensure $JELLYFIN_LOG_DIR has a value set; it is used by the logger configuration manager
             Environment.SetEnvironmentVariable("JELLYFIN_LOG_DIR", appPaths.LogDirectoryPath);
 
             // Create an instance of the application configuration to use for application startup
@@ -120,7 +120,7 @@ namespace Jellyfin.Server
             InitializeLoggingFramework(startupConfig, appPaths);
             _logger = _loggerFactory.CreateLogger("Main");
 
-            // Log uncaught exceptions to the logging instead of std error
+            // Start logging uncaught exceptions to the configured logger instead of std error
             AppDomain.CurrentDomain.UnhandledException -= UnhandledExceptionToConsole;
             AppDomain.CurrentDomain.UnhandledException += (sender, e)
                 => _logger.LogCritical((Exception)e.ExceptionObject, "Unhandled Exception");
@@ -162,7 +162,7 @@ namespace Jellyfin.Server
             // Ref: https://docs.microsoft.com/en-us/dotnet/api/system.text.codepagesencodingprovider.instance?view=netcore-3.0#remarks
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
-            // Increase the max http request limit
+            // Increase the max HTTP request limit
             // The default connection limit is 10 for ASP.NET hosted applications and 2 for all others.
             ServicePointManager.DefaultConnectionLimit = Math.Max(96, ServicePointManager.DefaultConnectionLimit);
 

@@ -90,16 +90,7 @@ namespace MediaBrowser.WebDashboard.Api
     /// </summary>
     public class DashboardService : IService, IRequiresRequest
     {
-        /// <summary>
-        /// Gets or sets the logger.
-        /// </summary>
-        /// <value>The logger.</value>
         private readonly ILogger _logger;
-
-        /// <summary>
-        /// Gets or sets the HTTP result factory.
-        /// </summary>
-        /// <value>The HTTP result factory.</value>
         private readonly IHttpResultFactory _resultFactory;
         private readonly IServerApplicationHost _appHost;
         private readonly IServerConfigurationManager _serverConfigurationManager;
