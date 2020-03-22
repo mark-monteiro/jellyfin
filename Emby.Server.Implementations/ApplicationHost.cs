@@ -199,12 +199,6 @@ namespace Emby.Server.Implementations
         /// </summary>
         private readonly List<IDisposable> _disposableParts = new List<IDisposable>();
 
-        /// <summary>
-        /// Gets the configuration manager.
-        /// </summary>
-        /// <value>The configuration manager.</value>
-        protected IConfigurationManager ConfigurationManager { get; set; }
-
         public IFileSystem FileSystemManager { get; set; }
 
         /// <inheritdoc />
@@ -244,7 +238,7 @@ namespace Emby.Server.Implementations
         /// Gets the server configuration manager.
         /// </summary>
         /// <value>The server configuration manager.</value>
-        public IServerConfigurationManager ServerConfigurationManager => (IServerConfigurationManager)ConfigurationManager;
+        public IServerConfigurationManager ServerConfigurationManager { get; }
 
         /// <summary>
         /// Gets or sets the user manager.
@@ -372,7 +366,7 @@ namespace Emby.Server.Implementations
             LoggerFactory = loggerFactory;
             FileSystemManager = fileSystem;
 
-            ConfigurationManager = new ServerConfigurationManager(ApplicationPaths, LoggerFactory, XmlSerializer, FileSystemManager);
+            ServerConfigurationManager = new ServerConfigurationManager(ApplicationPaths, LoggerFactory, XmlSerializer, FileSystemManager);
 
             Logger = LoggerFactory.CreateLogger("App");
 
@@ -541,7 +535,7 @@ namespace Emby.Server.Implementations
 
             Resolve<ITaskManager>().AddTasks(GetExports<IScheduledTask>(false));
 
-            ConfigurationManager.ConfigurationUpdated += OnConfigurationUpdated;
+            ServerConfigurationManager.ConfigurationUpdated += OnConfigurationUpdated;
 
             MediaEncoder.SetFFmpegPath();
 
@@ -655,7 +649,7 @@ namespace Emby.Server.Implementations
         {
             serviceCollection.AddMemoryCache();
 
-            serviceCollection.AddSingleton(ConfigurationManager);
+            serviceCollection.AddSingleton<IConfigurationManager>(ServerConfigurationManager);
             serviceCollection.AddSingleton<IApplicationHost>(this);
 
             serviceCollection.AddSingleton<IApplicationPaths>(ApplicationPaths);
@@ -1064,10 +1058,10 @@ namespace Emby.Server.Implementations
             if (!ServerConfigurationManager.Configuration.IsPortAuthorized)
             {
                 ServerConfigurationManager.Configuration.IsPortAuthorized = true;
-                ConfigurationManager.SaveConfiguration();
+                ServerConfigurationManager.SaveConfiguration();
             }
 
-            ConfigurationManager.AddParts(GetExports<IConfigurationFactory>());
+            ServerConfigurationManager.AddParts(GetExports<IConfigurationFactory>());
             _plugins = GetExports<IPlugin>()
                         .Select(LoadPlugin)
                         .Where(i => i != null)
@@ -1401,7 +1395,7 @@ namespace Emby.Server.Implementations
         public async Task<SystemInfo> GetSystemInfo(CancellationToken cancellationToken)
         {
             var localAddress = await GetLocalApiUrl(cancellationToken).ConfigureAwait(false);
-            var transcodingTempPath = ConfigurationManager.GetTranscodePath();
+            var transcodingTempPath = ServerConfigurationManager.GetTranscodePath();
 
             return new SystemInfo
             {
