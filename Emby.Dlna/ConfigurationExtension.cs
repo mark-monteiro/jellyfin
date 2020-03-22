@@ -23,7 +23,7 @@ namespace Emby.Dlna
                 new ConfigurationStore
                 {
                     Key = "dlna",
-                    ConfigurationType = typeof (DlnaOptions)
+                    ConfigurationType = typeof(DlnaOptions)
                 }
             };
         }

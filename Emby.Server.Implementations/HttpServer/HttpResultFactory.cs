@@ -496,7 +496,8 @@ namespace Emby.Server.Implementations.HttpServer
             return new FileStream(path, FileMode.Open, FileAccess.Read, fileShare);
         }
 
-        public Task<object> GetStaticResult(IRequest requestContext,
+        public Task<object> GetStaticResult(
+            IRequest requestContext,
             Guid cacheKey,
             DateTime? lastDateModified,
             TimeSpan? cacheDuration,

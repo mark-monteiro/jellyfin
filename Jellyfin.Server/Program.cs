@@ -18,7 +18,6 @@ using Emby.Server.Implementations.Networking;
 using Jellyfin.Drawing.Skia;
 using MediaBrowser.Common.Configuration;
 using MediaBrowser.Controller.Drawing;
-using MediaBrowser.Model.Globalization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
