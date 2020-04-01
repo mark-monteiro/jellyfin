@@ -378,191 +378,51 @@ namespace Emby.Naming.Common
                 @"^[-_ex]+([0-9]+(?:(?:[a-i]|\\.[1-9])(?![0-9]))?)"
             };
 
-            VideoExtraRules = new[]
+            (ExtraType Type, string Pattern)[] extraFileNamePatterns =
             {
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.Trailer,
-                    RuleType = ExtraRuleType.Filename,
-                    Token = "trailer",
-                    MediaType = MediaType.Video
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.Trailer,
-                    RuleType = ExtraRuleType.Suffix,
-                    Token = "-trailer",
-                    MediaType = MediaType.Video
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.Trailer,
-                    RuleType = ExtraRuleType.Suffix,
-                    Token = ".trailer",
-                    MediaType = MediaType.Video
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.Trailer,
-                    RuleType = ExtraRuleType.Suffix,
-                    Token = "_trailer",
-                    MediaType = MediaType.Video
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.Trailer,
-                    RuleType = ExtraRuleType.Suffix,
-                    Token = " trailer",
-                    MediaType = MediaType.Video
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.Sample,
-                    RuleType = ExtraRuleType.Filename,
-                    Token = "sample",
-                    MediaType = MediaType.Video
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.Sample,
-                    RuleType = ExtraRuleType.Suffix,
-                    Token = "-sample",
-                    MediaType = MediaType.Video
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.Sample,
-                    RuleType = ExtraRuleType.Suffix,
-                    Token = ".sample",
-                    MediaType = MediaType.Video
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.Sample,
-                    RuleType = ExtraRuleType.Suffix,
-                    Token = "_sample",
-                    MediaType = MediaType.Video
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.Sample,
-                    RuleType = ExtraRuleType.Suffix,
-                    Token = " sample",
-                    MediaType = MediaType.Video
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.ThemeSong,
-                    RuleType = ExtraRuleType.Filename,
-                    Token = "theme",
-                    MediaType = MediaType.Audio
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.Scene,
-                    RuleType = ExtraRuleType.Suffix,
-                    Token = "-scene",
-                    MediaType = MediaType.Video
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.Clip,
-                    RuleType = ExtraRuleType.Suffix,
-                    Token = "-clip",
-                    MediaType = MediaType.Video
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.Interview,
-                    RuleType = ExtraRuleType.Suffix,
-                    Token = "-interview",
-                    MediaType = MediaType.Video
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.BehindTheScenes,
-                    RuleType = ExtraRuleType.Suffix,
-                    Token = "-behindthescenes",
-                    MediaType = MediaType.Video
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.DeletedScene,
-                    RuleType = ExtraRuleType.Suffix,
-                    Token = "-deleted",
-                    MediaType = MediaType.Video
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.Clip,
-                    RuleType = ExtraRuleType.Suffix,
-                    Token = "-featurette",
-                    MediaType = MediaType.Video
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.Clip,
-                    RuleType = ExtraRuleType.Suffix,
-                    Token = "-short",
-                    MediaType = MediaType.Video
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.BehindTheScenes,
-                    RuleType = ExtraRuleType.DirectoryName,
-                    Token = "behind the scenes",
-                    MediaType = MediaType.Video,
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.DeletedScene,
-                    RuleType = ExtraRuleType.DirectoryName,
-                    Token = "deleted scenes",
-                    MediaType = MediaType.Video,
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.Interview,
-                    RuleType = ExtraRuleType.DirectoryName,
-                    Token = "interviews",
-                    MediaType = MediaType.Video,
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.Scene,
-                    RuleType = ExtraRuleType.DirectoryName,
-                    Token = "scenes",
-                    MediaType = MediaType.Video,
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.Sample,
-                    RuleType = ExtraRuleType.DirectoryName,
-                    Token = "samples",
-                    MediaType = MediaType.Video,
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.Clip,
-                    RuleType = ExtraRuleType.DirectoryName,
-                    Token = "shorts",
-                    MediaType = MediaType.Video,
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.Clip,
-                    RuleType = ExtraRuleType.DirectoryName,
-                    Token = "featurettes",
-                    MediaType = MediaType.Video,
-                },
-                new ExtraRule
-                {
-                    ExtraType = ExtraType.Unknown,
-                    RuleType = ExtraRuleType.DirectoryName,
-                    Token = "extras",
-                    MediaType = MediaType.Video,
-                },
+                (ExtraType.Trailer, "trailer"),
+                (ExtraType.Sample, "sample"),
+                (ExtraType.ThemeSong, "theme"),
+                (ExtraType.ThemeSong, @"theme[\. _-]?song"),
+                (ExtraType.BehindTheScenes, @"behind[\. _-]?the[\. _-]?scenes?"),
+                (ExtraType.DeletedScene, "deleted"),
+                (ExtraType.DeletedScene, @"deleted[\. _-]?scenes?"),
+                (ExtraType.Scene, "scene"),
+                (ExtraType.Clip, "clip"),
+                (ExtraType.Clip, "short"),
+                (ExtraType.Clip, "featurette"),
+                (ExtraType.Interview, "interviews?"),
             };
+
+            (ExtraType Type, string Pattern)[] extraDirectoryNamePatterns =
+            {
+                (ExtraType.BehindTheScenes, @"behind[\. _-]the[\. _-]scenes" ),
+                (ExtraType.DeletedScene, @"deleted[\. _-]scenes" ),
+                (ExtraType.Interview, "interviews" ),
+                (ExtraType.Scene, "scenes" ),
+                (ExtraType.Sample, "samples" ),
+                (ExtraType.Clip, "shorts" ),
+                (ExtraType.Clip, "featurettes" ),
+                (ExtraType.Unknown, "extras" ),
+            };
+
+            VideoExtraRules = extraFileNamePatterns
+                .Select(typeExpression => new ExtraRule
+                {
+                    ExtraType = typeExpression.Type,
+                    MediaType = MediaType.Video,
+                    RuleType = ExtraRuleType.FileNameRegex,
+                    // Match the provided pattern + any file extension
+                    Token = typeExpression.Pattern + @"\.[^.]+$"
+                })
+                .Concat(extraDirectoryNamePatterns.Select(directoryExpression => new ExtraRule
+                {
+                    ExtraType = directoryExpression.Type,
+                    MediaType = MediaType.Video,
+                    RuleType = ExtraRuleType.DirectoryNameRegex,
+                    Token = directoryExpression.Pattern
+                }))
+                .ToArray();
 
             Format3DRules = new[]
             {

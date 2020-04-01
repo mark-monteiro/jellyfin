@@ -121,7 +121,7 @@ namespace Emby.Naming.Video
 
                 // Add the extras that are just based on file name as well
                 var extrasByFileName = remainingFiles
-                    .Where(i => i.ExtraRule != null && i.ExtraRule.RuleType == ExtraRuleType.Filename)
+                    .Where(i => i.ExtraRule != null && i.ExtraRule.RuleType == ExtraRuleType.FileNameRegex)
                     .ToList();
 
                 remainingFiles = remainingFiles

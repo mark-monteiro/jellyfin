@@ -48,31 +48,11 @@ namespace Emby.Naming.Video
                 return result;
             }
 
-            if (rule.RuleType == ExtraRuleType.Filename)
-            {
-                var filename = Path.GetFileNameWithoutExtension(path);
-
-                if (string.Equals(filename, rule.Token, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.ExtraType = rule.ExtraType;
-                    result.Rule = rule;
-                }
-            }
-            else if (rule.RuleType == ExtraRuleType.Suffix)
-            {
-                var filename = Path.GetFileNameWithoutExtension(path);
-
-                if (filename.IndexOf(rule.Token, StringComparison.OrdinalIgnoreCase) > 0)
-                {
-                    result.ExtraType = rule.ExtraType;
-                    result.Rule = rule;
-                }
-            }
-            else if (rule.RuleType == ExtraRuleType.Regex)
+            if (rule.RuleType == ExtraRuleType.FileNameRegex)
             {
                 var filename = Path.GetFileName(path);
 
-                var regex = new Regex(rule.Token, RegexOptions.IgnoreCase);
+                var regex = new Regex(rule.Token, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
 
                 if (regex.IsMatch(filename))
                 {
@@ -80,10 +60,13 @@ namespace Emby.Naming.Video
                     result.Rule = rule;
                 }
             }
-            else if (rule.RuleType == ExtraRuleType.DirectoryName)
+            else if (rule.RuleType == ExtraRuleType.DirectoryNameRegex)
             {
                 var directoryName = Path.GetFileName(Path.GetDirectoryName(path));
-                if (string.Equals(directoryName, rule.Token, StringComparison.OrdinalIgnoreCase))
+
+                var regex = new Regex(rule.Token, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+
+                if (regex.IsMatch(directoryName))
                 {
                     result.ExtraType = rule.ExtraType;
                     result.Rule = rule;
