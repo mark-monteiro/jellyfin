@@ -3,7 +3,6 @@
 using System;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using Emby.Naming.Audio;
 using Emby.Naming.Common;
 
@@ -22,12 +21,13 @@ namespace Emby.Naming.Video
         {
             return _options.VideoExtraRules
                 .Select(i => GetExtraInfo(path, i))
-                .FirstOrDefault(i => i.ExtraType != null) ?? new ExtraResult();
+                .FirstOrDefault(i => i.ExtraType != null) ?? ExtraResult.NoMatchResult;
         }
 
         private ExtraResult GetExtraInfo(string path, ExtraRule rule)
         {
-            if (rule.MediaType != MediaType.Audio && rule.MediaType != MediaType.Video)
+            bool isValidType = rule.MediaType == MediaType.Audio || rule.MediaType == MediaType.Video;
+            if (!isValidType)
             {
                 return ExtraResult.NoMatchResult;
             }
@@ -37,7 +37,7 @@ namespace Emby.Naming.Video
                 return ExtraResult.NoMatchResult;
             }
 
-            if (rule.MediaType == MediaType.Video && !new VideoResolver(_options).IsVideoFile(path))
+            if (rule.MediaType == MediaType.Video && !VideoResolver.IsVideoFile(path, _options))
             {
                 return ExtraResult.NoMatchResult;
             }

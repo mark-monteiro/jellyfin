@@ -117,8 +117,13 @@ namespace Emby.Naming.Video
 
         public bool IsVideoFile(string path)
         {
+            return IsVideoFile(path, _options);
+        }
+
+        public static bool IsVideoFile(string path, NamingOptions namingOptions)
+        {
             var extension = Path.GetExtension(path) ?? string.Empty;
-            return _options.VideoFileExtensions.Contains(extension, StringComparer.OrdinalIgnoreCase);
+            return namingOptions.VideoFileExtensions.Contains(extension, StringComparer.OrdinalIgnoreCase);
         }
 
         public bool IsStubFile(string path)
