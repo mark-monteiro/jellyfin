@@ -17,5 +17,10 @@ namespace Emby.Naming.Video
         /// </summary>
         /// <value>The rule.</value>
         public ExtraRule Rule { get; set; }
+
+        /// <summary>
+        /// Gets a new <see cref="ExtraResult"/> that represents that no match could be made.
+        /// </summary>
+        public static ExtraResult NoMatchResult => new ExtraResult();
     }
 }

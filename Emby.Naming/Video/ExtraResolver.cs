@@ -27,53 +27,42 @@ namespace Emby.Naming.Video
 
         private ExtraResult GetExtraInfo(string path, ExtraRule rule)
         {
-            var result = new ExtraResult();
-
-            if (rule.MediaType == MediaType.Audio)
+            if (rule.MediaType != MediaType.Audio && rule.MediaType != MediaType.Video)
             {
-                if (!AudioFileParser.IsAudioFile(path, _options))
-                {
-                    return result;
-                }
+                return ExtraResult.NoMatchResult;
             }
-            else if (rule.MediaType == MediaType.Video)
+
+            if (rule.MediaType == MediaType.Audio && !AudioFileParser.IsAudioFile(path, _options))
             {
-                if (!new VideoResolver(_options).IsVideoFile(path))
+                return ExtraResult.NoMatchResult;
+            }
+
+            if (rule.MediaType == MediaType.Video && !new VideoResolver(_options).IsVideoFile(path))
+            {
+                return ExtraResult.NoMatchResult;
+            }
+
+            // Get the string to match against the rule's regex
+            string matchString = rule.RuleType switch
+            {
+                ExtraRuleType.FileNameRegex => Path.GetFileName(path),
+                ExtraRuleType.DirectoryNameRegex => Path.GetFileName(Path.GetDirectoryName(path)),
+                _ => throw new InvalidOperationException("Invalid RuleType " + rule.RuleType)
+            };
+
+            // Perform the regex match and return based on the result
+            if (rule.Regex.IsMatch(matchString))
+            {
+                return new ExtraResult
                 {
-                    return result;
-                }
+                    ExtraType = rule.ExtraType,
+                    Rule = rule,
+                };
             }
             else
             {
-                return result;
+                return ExtraResult.NoMatchResult;
             }
-
-            if (rule.RuleType == ExtraRuleType.FileNameRegex)
-            {
-                var filename = Path.GetFileName(path);
-
-                var regex = new Regex(rule.Token, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
-
-                if (regex.IsMatch(filename))
-                {
-                    result.ExtraType = rule.ExtraType;
-                    result.Rule = rule;
-                }
-            }
-            else if (rule.RuleType == ExtraRuleType.DirectoryNameRegex)
-            {
-                var directoryName = Path.GetFileName(Path.GetDirectoryName(path));
-
-                var regex = new Regex(rule.Token, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
-
-                if (regex.IsMatch(directoryName))
-                {
-                    result.ExtraType = rule.ExtraType;
-                    result.Rule = rule;
-                }
-            }
-
-            return result;
         }
     }
 }
