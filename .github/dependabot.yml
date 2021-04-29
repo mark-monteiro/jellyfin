@@ -1,0 +1,41 @@
+version: 2
+updates:
+- package-ecosystem: nuget
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "10:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: Swashbuckle.AspNetCore
+    versions:
+    - 5.6.3
+    - 6.0.2
+    - 6.0.4
+    - 6.0.5
+    - 6.0.7
+    - 6.1.0
+    - 6.1.1
+    - 6.1.2
+  - dependency-name: IPNetwork2
+    versions:
+    - 2.5.240
+    - 2.5.247
+    - 2.5.250
+    - 2.5.265
+    - 2.5.271
+    - 2.5.280
+    - 2.5.290
+    - 2.5.292
+    - 2.5.293
+    - 2.5.298
+  - dependency-name: Microsoft.NET.Test.Sdk
+    versions:
+    - 16.8.3
+    - 16.9.1
+  - dependency-name: Moq
+    versions:
+    - 4.16.0
+  - dependency-name: ServiceStack.Text.Core
+    versions:
+    - 5.10.4
